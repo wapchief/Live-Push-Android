@@ -33,4 +33,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="测试账号"/>
+
+    <TextView
+        android:text="测试播放地址：http://t.cn/RpgigIF"
+        android:textIsSelectable="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </LinearLayout>
