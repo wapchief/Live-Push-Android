@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffffff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout style="@style/letv_linear_test">
+
+            <EditText
+                android:id="@+id/test_videoBitrate"
+                style="@style/letv_edit_test"
+                android:text="600" />
+
+            <TextView
+                style="@style/letv_text_test"
+                android:text="* 1000 码率" />
+            <EditText
+                android:id="@+id/test_reCount"
+                style="@style/letv_edit_test"
+                android:layout_marginLeft="60dp"
+                android:text="3" />
+
+            <TextView
+                style="@style/letv_text_test"
+                android:text=" 重试次数" />
+        </LinearLayout>
+
+        <View style="@style/letv_line_test" />
+
+        <LinearLayout style="@style/letv_linear_test">
+
+            <EditText
+                android:id="@+id/test_videowidth"
+                style="@style/letv_edit_test"
+                android:text="368" />
+
+            <TextView
+                style="@style/letv_text_test"
+                android:text="宽度" />
+
+            <EditText
+                android:id="@+id/test_videoHeight"
+                style="@style/letv_edit_test"
+                android:layout_marginLeft="60dp"
+                android:text="640" />
+
+            <TextView
+                style="@style/letv_text_test"
+                android:text="高度   视频分辨率" />
+        </LinearLayout>
+
+        <View style="@style/letv_line_test" />
+
+        <LinearLayout style="@style/letv_linear_test">
+
+            <EditText
+                android:id="@+id/test_surfaceViewwidth"
+                style="@style/letv_edit_test"
+                android:text="-1" />
+
+            <TextView
+                style="@style/letv_text_test"
+                android:text="宽度" />
+
+            <EditText
+                android:id="@+id/test_surfaceViewHeight"
+                style="@style/letv_edit_test"
+                android:layout_marginLeft="60dp"
+                android:text="-1" />
+
+            <TextView
+                style="@style/letv_text_test"
+                android:text="高度 预览画面大小。0是全屏" />
+        </LinearLayout>
+
+        <View style="@style/letv_line_test" />
+
+        <LinearLayout style="@style/letv_linear_test">
+
+            <include
+                android:id="@+id/test_camera"
+                layout="@layout/le_recorder_test_item" />
+
+            <TextView
+                style="@style/letv_text_test"
+                android:text="默认开启后置摄像头" />
+        </LinearLayout>
+
+        <View style="@style/letv_line_test" />
+
+        <LinearLayout style="@style/letv_linear_test">
+
+            <include
+                android:id="@+id/test_isOnAnimation"
+                layout="@layout/le_recorder_test_item" />
+
+            <TextView
+                style="@style/letv_text_test"
+                android:text="默认开启对焦动画" />
+        </LinearLayout>
+
+        <View style="@style/letv_line_test" />
+
+        <LinearLayout style="@style/letv_linear_test">
+
+            <include
+                android:id="@+id/test_isOnTouch"
+                layout="@layout/le_recorder_test_item" />
+
+            <TextView
+                style="@style/letv_text_test"
+                android:text="默认开启开启对焦功能" />
+        </LinearLayout>
+
+        <View style="@style/letv_line_test" />
+
+        <LinearLayout style="@style/letv_linear_test">
+
+            <include
+                android:id="@+id/test_home"
+                layout="@layout/le_recorder_test_item" />
+
+            <TextView
+                style="@style/letv_text_test"
+                android:text="默认HOME键返回后自动推流" />
+        </LinearLayout>
+
+        <View style="@style/letv_line_test" />
+
+        <LinearLayout style="@style/letv_linear_test">
+
+            <include
+                android:id="@+id/test_update"
+                layout="@layout/le_recorder_test_item" />
+
+            <TextView
+                style="@style/letv_text_test"
+                android:text="默认开启自动日志上报" />
+        </LinearLayout>
+
+        <View style="@style/letv_line_test" />
+
+        <LinearLayout style="@style/letv_linear_test">
+
+            <include
+                android:id="@+id/test_audio"
+                layout="@layout/le_recorder_test_item" />
+
+            <TextView
+                style="@style/letv_text_test"
+                android:text="默认开启麦克风" />
+        </LinearLayout>
+
+        <View style="@style/letv_line_test" />
+
+        <LinearLayout style="@style/letv_linear_test">
+
+            <include
+                android:id="@+id/test_isMirror"
+                layout="@layout/le_recorder_test_item" />
+
+            <TextView
+                style="@style/letv_text_test"
+                android:text="默认前置开启镜像" />
+        </LinearLayout>
+
+        <View style="@style/letv_line_test" />
+
+        <LinearLayout style="@style/letv_linear_test">
+
+            <include
+                android:id="@+id/test_isFirstMachine"
+                layout="@layout/le_recorder_test_item" />
+
+            <TextView
+                style="@style/letv_text_test"
+                android:text="云直播默认第一个机位起推" />
+        </LinearLayout>
+
+        <View style="@style/letv_line_test" />
+
+        <LinearLayout style="@style/letv_linear_test">
+
+            <include
+                android:id="@+id/test_zoom"
+                layout="@layout/le_recorder_test_item" />
+
+            <TextView
+                style="@style/letv_text_test"
+                android:text="默认开启ZOOM功能" />
+        </LinearLayout>
+
+        <View style="@style/letv_line_test" />
+
+        <LinearLayout style="@style/letv_linear_test">
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/test_publisher_model"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/test_ALWAYS_yes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="缺一" />
+
+                    <RadioButton
+                        android:id="@+id/test_audio_yes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="缺音" />
+
+                    <RadioButton
+                        android:id="@+id/test_video_yes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="缺视" />
+
+                    <RadioButton
+                        android:id="@+id/test_ALWAYS_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="不可缺" />
+
+                    <TextView
+                        style="@style/letv_text_test"
+                        android:text="推流模式" />
+                </RadioGroup>
+            </HorizontalScrollView>
+        </LinearLayout>
+
+        <View style="@style/letv_line_test" />
+
+        <LinearLayout style="@style/letv_linear_test">
+
+            <Button
+                android:id="@+id/test_cacel"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#ffb2b2b2"
+                android:text="取消"
+                android:textColor="#ffffffff" />
+
+            <Button
+                android:id="@+id/test_submit"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#ff1073C2"
+                android:text="保存生效"
+                android:textColor="#ffffffff" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

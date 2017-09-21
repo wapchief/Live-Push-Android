@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/le_screen_recorder_loading">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/imgB_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/letv_recorder_arrow"
+            android:background="#00ffffff"
+            android:paddingLeft="50dp"
+            android:paddingBottom="3dp"
+            android:paddingTop="3dp"
+            android:layout_alignParentLeft="true"
+            />
+
+        <ImageView
+            android:id="@+id/imgV_thumd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="50dp"
+            android:src="@drawable/letv_recorder_thumd"/>
+
+        <TextView
+            android:id="@+id/tv_rec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/imgV_thumd"
+            android:text="REC"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="7dp"
+            android:textColor="#15a0f3"
+            android:textSize="14dp"/>
+    </RelativeLayout>
+    <TextView
+        android:text="正在开启录屏"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="350dp"
+        android:textColor="#15a0f3"
+        android:id="@+id/tv_recorder_state" />
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00:00"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:textColor="#15a0f3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        />
+</RelativeLayout>
