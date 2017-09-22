@@ -6,16 +6,25 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.wapchief.live_push.model.HDModel;
+import com.wapchief.live_push.network.MyMethod;
+import com.wapchief.live_push.network.NetWorkManager;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
 
     @BindView(R.id.activity_id)
@@ -28,7 +37,10 @@ public class MainActivity extends AppCompatActivity {
     Button mBtStart;
     @BindView(R.id.bt_start_test)
     Button mBtStartTest;
+    @BindView(R.id.bt_start_http)
+    Button mBtStartHttp;
 
+    int userid = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.bt_start, R.id.bt_start_test})
+    @OnClick({R.id.bt_start, R.id.bt_start_test,R.id.bt_start_http})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bt_start:
@@ -60,6 +72,10 @@ public class MainActivity extends AppCompatActivity {
                 intent1.putExtra("KEY", "891d3747c27e715cf8018eb8352a9d7b");
                 intent1.putExtra("isVertical", true);
                 startActivity(intent1);
+                break;
+            case R.id.bt_start_http:
+                showProgressDialog("正在获取....");
+                pushUrl("A201709180000043");
                 break;
         }
     }
@@ -79,5 +95,35 @@ public class MainActivity extends AppCompatActivity {
                             Manifest.permission.WRITE_EXTERNAL_STORAGE,
                             Manifest.permission.READ_PHONE_STATE}, 0);
         }
+    }
+    HDModel hdModel;
+    HDModel.RowsBean bean;
+    private void pushUrl(String activityId) {
+
+        NetWorkManager.searchHD(activityId,getTimestamp(), new Callback<HDModel>() {
+            @Override
+            public void onResponse(Call<HDModel> call, Response<HDModel> response) {
+                dismissProgressDialog();
+                Log.e("onResponseList", response+"\n" + response.body());
+                if (response.body().equals("")){
+                    return;
+                }
+                hdModel = response.body();
+                bean = hdModel.rows.get(0);
+                Intent intent = new Intent(MainActivity.this, HDActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("HD",bean);
+                intent.putExtras(bundle);
+                startActivity(intent);
+
+
+            }
+
+            @Override
+            public void onFailure(Call<HDModel> call, Throwable throwable) {
+                Log.e("onFailurlList", "" + throwable);
+
+            }
+        });
     }
 }

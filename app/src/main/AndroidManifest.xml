@@ -42,6 +42,7 @@
         </activity>
 
         <activity android:name=".LiveActivity"/>
+        <activity android:name=".HDActivity"/>
     </application>
 
 </manifest>

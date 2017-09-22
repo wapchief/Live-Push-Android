@@ -10,7 +10,6 @@ import com.le.skin.LePublisherSkinView;
 import com.le.skin.test.SettingActivity;
 import com.le.skin.ui.SkinParams;
 import com.letv.recorder.letvrecorderskin.*;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
