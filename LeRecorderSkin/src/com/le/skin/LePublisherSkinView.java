@@ -209,13 +209,13 @@ public class LePublisherSkinView extends BaseSkinView {
 
     }
 
-    public void initPublish(String userId, String secretKey, String activityId) {
+    public void initPublish(String userId, String secretKey, String activityId,String name) {
         Log.d(TAG,"initPublish，初始化");
         this.userId = userId;
         this.secretKey = secretKey;
         this.activityId = activityId;
         if(TextUtils.isEmpty(skinParams.getTitle())){
-            nameView.setText(activityId);
+            nameView.setText(name);
         }
         LetvPublisher.init(activityId,userId,secretKey);
         publisher = LetvPublisher.getInstance();

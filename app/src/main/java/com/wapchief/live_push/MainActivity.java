@@ -63,19 +63,22 @@ public class MainActivity extends BaseActivity {
                 intent.putExtra("ACTIVITYID", mActivityId.getText());
                 intent.putExtra("USERID", mUserId.getText());
                 intent.putExtra("KEY", mKey.getText());
+                intent.putExtra("isVertical", true);
                 startActivity(intent);
                 break;
             case R.id.bt_start_test:
-                Intent intent1 = new Intent(this, LiveActivity.class);
-                intent1.putExtra("ACTIVITYID", "A201709180000043");
-                intent1.putExtra("USERID", "922294");
-                intent1.putExtra("KEY", "891d3747c27e715cf8018eb8352a9d7b");
-                intent1.putExtra("isVertical", true);
-                startActivity(intent1);
+                showProgressDialog("正在加载直播....");
+                pushUrl("A201709180000043",1);
+//                Intent intent1 = new Intent(this, LiveActivity.class);
+//                intent1.putExtra("ACTIVITYID", "A201709180000043");
+//                intent1.putExtra("USERID", "922294");
+//                intent1.putExtra("KEY", "891d3747c27e715cf8018eb8352a9d7b");
+//                intent1.putExtra("isVertical", true);
+//                startActivity(intent1);
                 break;
             case R.id.bt_start_http:
                 showProgressDialog("正在获取....");
-                pushUrl("A201709180000043");
+                pushUrl("A201709180000043",0);
                 break;
         }
     }
@@ -98,7 +101,7 @@ public class MainActivity extends BaseActivity {
     }
     HDModel hdModel;
     HDModel.RowsBean bean;
-    private void pushUrl(String activityId) {
+    private void pushUrl(String activityId, final int type) {
 
         NetWorkManager.searchHD(activityId,getTimestamp(), new Callback<HDModel>() {
             @Override
@@ -110,11 +113,23 @@ public class MainActivity extends BaseActivity {
                 }
                 hdModel = response.body();
                 bean = hdModel.rows.get(0);
-                Intent intent = new Intent(MainActivity.this, HDActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("HD",bean);
-                intent.putExtras(bundle);
-                startActivity(intent);
+                if (type==0) {
+                    Intent intent = new Intent(MainActivity.this, HDActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("HD", bean);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                }else {
+                    Intent intent1 = new Intent(MainActivity.this, LiveActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("HD", bean);
+                    intent1.putExtras(bundle);
+                    intent1.putExtra("ACTIVITYID", "A201709180000043");
+                    intent1.putExtra("USERID", "922294");
+                    intent1.putExtra("KEY", "891d3747c27e715cf8018eb8352a9d7b");
+                    intent1.putExtra("isVertical", true);
+                    startActivity(intent1);
+                }
 
 
             }

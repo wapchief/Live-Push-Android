@@ -3,6 +3,8 @@ package com.wapchief.live_push;
 import android.app.Activity;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -10,6 +12,8 @@ import com.le.skin.LePublisherSkinView;
 import com.le.skin.test.SettingActivity;
 import com.le.skin.ui.SkinParams;
 import com.letv.recorder.letvrecorderskin.*;
+import com.wapchief.live_push.model.HDModel;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -31,7 +35,8 @@ public class LiveActivity extends Activity {
     boolean isVertical;
     @BindView(R.id.lpsv_stream_recorder)
     LePublisherSkinView skinView;
-
+    HDModel.RowsBean bean;
+    String activityName = "";
     protected void onCreate(Bundle savedInstanceState) {
         getWindow().setFormat(PixelFormat.TRANSLUCENT);
         super.onCreate(savedInstanceState);
@@ -46,11 +51,22 @@ public class LiveActivity extends Activity {
 
         setContentView(R.layout.activity_live);
         ButterKnife.bind(this);
+        try {
+            bean = (HDModel.RowsBean) getIntent().getSerializableExtra("HD");
+            activityName = bean.activityName;
+        }catch (Exception e){
+
+        }
         SkinParams params = skinView.getSkinParams();
         params.setLanscape(!isVertical);
         test(params);
-        skinView.initPublish(userid, key, activityId);
-//        skinView.initPublish();
+        initData();
+        skinView.initPublish(userid, key, activityId,activityName+"的直播间");
+
+    }
+
+    private void initData() {
+
 
     }
 
